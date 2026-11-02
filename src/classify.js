@@ -1,7 +1,7 @@
 import { GoogleGenAI } from '@google/genai';
 import { CATEGORIES, URGENCIES, classificationSchema } from './schema.js';
 
-const DEFAULT_MODEL = 'gemini-flash-latest';
+const DEFAULT_MODEL = 'gemini-flash-lite-latest';
 const ATTEMPTS = 4;
 const BASE_DELAY_MS = 2000;
 
@@ -81,14 +81,15 @@ async function classify(tickets, { apiKey, model = DEFAULT_MODEL }) {
       return byId;
     } catch (err) {
       lastError = err;
+      if (err.status === 429) break;
       if (attempt < ATTEMPTS) {
         const delayMs = BASE_DELAY_MS * 2 ** (attempt - 1);
-        console.warn(`Gemini attempt ${attempt} failed, retrying in ${delayMs / 1000}s...`);
+        console.warn(`Gemini attempt ${attempt} failed (${err.message.slice(0, 120)}), retrying in ${delayMs / 1000}s...`);
         await new Promise((resolve) => setTimeout(resolve, delayMs));
       }
     }
   }
-  throw new Error(`Gemini classification failed after ${ATTEMPTS} attempts: ${lastError.message}`);
+  throw new Error(`Gemini classification failed: ${lastError.message}`);
 }
 
 export { classify, DEFAULT_MODEL };
