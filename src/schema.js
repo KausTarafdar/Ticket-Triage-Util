@@ -77,7 +77,6 @@ const outputSchema = z.object({
     })
   ),
   tickets: z.array(ticketSchema),
-  dropped: z.array(z.object({ ticket_id: z.string(), reason: z.string() })),
 });
 
 export {

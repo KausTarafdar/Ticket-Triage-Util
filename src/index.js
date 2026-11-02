@@ -11,6 +11,7 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 dotenv.config({ path: path.join(ROOT, '.env'), quiet: true });
 const INPUT = 'tickets_raw.csv';
 const OUTPUT = 'output_kaustav.json';
+const CLEANED = 'cleaned_tickets.json';
 const TOP_N = 3;
 
 function groupIssues(tickets) {
@@ -76,6 +77,10 @@ async function main() {
 
   const csvText = fs.readFileSync(path.join(ROOT, INPUT), 'utf8');
   const { rowsRead, tickets, dropped, mergedFollowUps } = cleanTickets(csvText);
+  fs.writeFileSync(
+    path.join(ROOT, CLEANED),
+    JSON.stringify({ rows_read: rowsRead, merged_follow_ups: mergedFollowUps, dropped, tickets }, null, 2) + '\n'
+  );
 
   let classifier = 'gemini';
   let classified;
@@ -122,7 +127,6 @@ async function main() {
     },
     top_issues: groupIssues(kept),
     tickets: kept,
-    dropped,
   });
 
   fs.writeFileSync(path.join(ROOT, OUTPUT), JSON.stringify(output, null, 2) + '\n');

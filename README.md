@@ -1,6 +1,6 @@
 # Ticket Triage Util
 
-Reads `tickets_raw.csv`, cleans it, classifies each ticket with Gemini, and writes `output_kaustav.json` plus a short terminal summary for the support lead.
+Reads `tickets_raw.csv`, cleans it, classifies each ticket with Gemini, and writes output JSON plus a short terminal summary for the support lead.
 
 ## How to run it
 

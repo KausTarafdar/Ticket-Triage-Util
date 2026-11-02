@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T14:36:14.702Z",
+  "generated_at": "2026-11-02T15:01:52.594Z",
   "source_file": "tickets_raw.csv",
   "classifier": "rules",
   "model": "rules-v1",
@@ -1734,44 +1734,6 @@
       "flags": [],
       "follow_up_ids": [],
       "issue_key": "upgrade did not add the extra seats"
-    }
-  ],
-  "dropped": [
-    {
-      "ticket_id": "TKT-1056",
-      "reason": "duplicate"
-    },
-    {
-      "ticket_id": "TKT-1011",
-      "reason": "duplicate"
-    },
-    {
-      "ticket_id": "TKT-1005",
-      "reason": "duplicate"
-    },
-    {
-      "ticket_id": "TKT-1042",
-      "reason": "duplicate"
-    },
-    {
-      "ticket_id": "TKT-1058",
-      "reason": "duplicate"
-    },
-    {
-      "ticket_id": "TKT-1071",
-      "reason": "duplicate"
-    },
-    {
-      "ticket_id": "TKT-1115",
-      "reason": "not_a_support_ticket"
-    },
-    {
-      "ticket_id": "TKT-1113",
-      "reason": "not_a_support_ticket"
-    },
-    {
-      "ticket_id": "TKT-1114",
-      "reason": "not_a_support_ticket"
     }
   ]
 }
