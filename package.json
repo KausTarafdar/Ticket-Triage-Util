@@ -1,0 +1,30 @@
+{
+  "name": "ticket-triage-util",
+  "version": "1.0.0",
+  "description": "Ticket Triage Utility for Support Leads",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KausTarafdar/Ticket-Triage-Util.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/KausTarafdar/Ticket-Triage-Util/issues"
+  },
+  "homepage": "https://github.com/KausTarafdar/Ticket-Triage-Util#readme",
+  "dependencies": {
+    "@google/genai": "^2.32.0",
+    "csv-parse": "^7.0.3",
+    "dotenv": "^18.0.9",
+    "zod": "^4.6.7"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
